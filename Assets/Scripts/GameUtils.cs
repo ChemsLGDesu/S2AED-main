@@ -20,13 +20,13 @@ namespace B3NNY.Utils
             return func(element);
         }
 
-        public static bool Validate<T>(T element, Func<T, bool> predicate)
+        public static bool Validate<T>(T element, Func<T, bool> func)
         {
-            if (element == null || predicate == null)
+            if (element == null || func == null)
                 return false;
             else
             {
-                return predicate(element);
+                return func(element);
             }
             
 
