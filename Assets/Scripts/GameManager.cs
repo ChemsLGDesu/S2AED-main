@@ -12,19 +12,16 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
-
-      
         if (player != null)
             TestTakeDamage<Player>(player, 15);
 
- 
+
         int simpleReturn = ReturnSimple(out string obj);
         print(obj);
 
         int simpleReturn2 = ReturnSimple(out _);
 
-     // habilidades
+        // Habilidades
 
         Debug.Log("!tienes todas las habilidades");
 
@@ -32,7 +29,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Skill: " + skill.skillName);
 
-           
+
             bool canLearn = GameUtils.Validate(skill, s => player.level >= s.requiredLevel);  // que confirme si puede aprender
 
             if (canLearn)
@@ -57,10 +54,10 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("habilidad aprendida");
 
-       
+
         foreach (var skill in player.learnedSkills)  // Recorrer habilidades aprendidas
         {
-          //ejECUTA SKILL
+            //EjECUTA SKILL
             GameUtils.Process(skill, s =>
             {
                 Debug.Log("Ejecutando: " + s.skillName);
@@ -73,7 +70,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Encontrada: " + found.skillName);
         }
 
-       // out 
+        // out 
         GameUtils.TryFind(skillManager.allSkills, s => s.cost > 100, out _);
     }
 

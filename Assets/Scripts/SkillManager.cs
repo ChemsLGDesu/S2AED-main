@@ -5,4 +5,5 @@ using UnityEngine;
 public class SkillManager : ScriptableObject
 {
     public Skill[] allSkills;
+
 }
